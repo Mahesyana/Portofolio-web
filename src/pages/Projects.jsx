@@ -6,7 +6,7 @@ export default function Projects() {
       <div className="page-header">
         <div className="page-eyebrow">Portofolio Karya Nyata</div>
         <h1 className="page-title">Proyek yang Pernah Dibangun</h1>
-        <p className="page-subtitle">Berdasarkan repositori dan kode aktual yang dikembangkan secara mandiri.</p>
+        <p className="page-subtitle">Disampaikan secara transparan, jujur, dan berbasis bukti kode aktual.</p>
       </div>
 
       <div className="projects-grid">
@@ -28,26 +28,26 @@ export default function Projects() {
             </div>
 
             <div className="project-status-row">
-              <span className="project-status-badge tag-mastered">Completed (v1.0)</span>
+              <span className="project-status-badge tag-mastered">Completed (AI-Assisted)</span>
               <span style={{ fontSize: '0.6875rem', opacity: 0.6 }}>Web Application</span>
             </div>
 
             <h3 className="project-title">Sagaras Music Tierlist</h3>
             <p className="project-desc">
-              Aplikasi web sistem klasifikasi musik interaktif dengan tema <em>Neon Nocturne</em>. Dilengkapi penyimpanan database lokal browser menggunakan <strong>IndexedDB</strong>, fitur unduh ekspor grafik ke format <strong>PNG</strong>, serta sistem pencadangan dan pemulihan data (<strong>Backup &amp; Restore JSON</strong>).
+              Aplikasi web sistem klasifikasi musik dengan tema <em>Neon Nocturne</em> yang dikembangkan melalui eksplorasi AI (Claude sebagai pembuat kode dan ChatGPT sebagai perumus prompt). Mengintegrasikan penyimpanan <strong>IndexedDB</strong>, ekspor <strong>Canvas PNG</strong>, dan sistem <strong>Backup &amp; Restore JSON</strong> yang saat ini sedang saya pelajari alur kodenya secara bertahap.
             </p>
 
             <div className="project-tech-tags">
               <span className="tech-tag">JavaScript (ES6+)</span>
               <span className="tech-tag">IndexedDB API</span>
-              <span className="tech-tag">Canvas PNG Export</span>
-              <span className="tech-tag">CSS Neon Nocturne</span>
+              <span className="tech-tag">Canvas PNG</span>
+              <span className="tech-tag">Prompt Engineering</span>
             </div>
           </div>
 
           <div className="project-actions">
-            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--crimson)' }}>
-              ✓ Fitur &amp; Database Lokal Aktif
+            <span style={{ fontSize: '0.75rem', color: 'var(--crimson)', fontWeight: 600 }}>
+              📖 Fitur Aktif • Sedang Dipelajari Mendalam
             </span>
           </div>
         </div>

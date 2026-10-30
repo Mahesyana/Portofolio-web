@@ -51,10 +51,10 @@ export default function Contact() {
           </a>
 
           {/* Row 3: GitHub */}
-          <a href="https://github.com/SagaraS" target="_blank" rel="noopener noreferrer" className="contact-item-row">
+          <a href="https://github.com/Mahesyana" target="_blank" rel="noopener noreferrer" className="contact-item-row">
             <div className="contact-item-left">
               <span className="contact-item-label">GitHub</span>
-              <span className="contact-item-value">github.com/SagaraS</span>
+              <span className="contact-item-value">github.com/Mahesyana</span>
             </div>
             <span style={{ fontSize: '0.75rem', opacity: 0.5 }}>➔</span>
           </a>

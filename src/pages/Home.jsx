@@ -1,12 +1,45 @@
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../styles/pages.css';
 
 export default function Home() {
+  // Daftar kemungkinan nama file foto yang ditaruh di folder public/
+  const candidateImages = [
+    '/profile.jpg',
+    '/profile.png',
+    '/profile.jpeg',
+    '/avatar.jpg',
+    '/avatar.png',
+    '/foto_profil.jpg',
+  ];
+
+  const [activePhoto, setActivePhoto] = useState(null);
+
+  useEffect(() => {
+    // Mengecek apakah salah satu nama file foto tersedia di folder public/
+    let isMounted = true;
+    const testImage = (index) => {
+      if (index >= candidateImages.length) return;
+      const img = new Image();
+      img.src = candidateImages[index];
+      img.onload = () => {
+        if (isMounted) setActivePhoto(candidateImages[index]);
+      };
+      img.onerror = () => {
+        testImage(index + 1);
+      };
+    };
+    testImage(0);
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   return (
     <div className="container">
       <div className="hero-grid">
         
-        {/* Kolom Kiri: Sapaan & Call to Action */}
+        {/* Kolom Kiri: Sapaan, Call to Action, & Quick Highlights */}
         <div>
           <div className="hero-badge">
             <span className="hero-pulse-dot"></span>
@@ -35,14 +68,40 @@ export default function Home() {
             <span>•</span>
             <span>⚡ React 19 + Vite 8</span>
           </div>
+
+          {/* Quick Highlights Bar */}
+          <div className="hero-highlights-strip">
+            <div className="highlight-item">
+              <span className="highlight-number">2+</span>
+              <span className="highlight-label">Proyek Nyata</span>
+            </div>
+            <div className="highlight-divider"></div>
+            <div className="highlight-item">
+              <span className="highlight-number">6</span>
+              <span className="highlight-label">Halaman Web</span>
+            </div>
+            <div className="highlight-divider"></div>
+            <div className="highlight-item">
+              <span className="highlight-number">100%</span>
+              <span className="highlight-label">Responsif HP</span>
+            </div>
+          </div>
         </div>
 
-        {/* Kolom Kanan: Avatar Card Kamon */}
+        {/* Kolom Kanan: Avatar Card Kamon (Otomatis Foto jika ada di public/) */}
         <div className="avatar-card-wrapper">
           <div className="app-card avatar-card">
             <div className="avatar-circle">
               <div className="avatar-circle-inner">
-                👨‍💻
+                {activePhoto ? (
+                  <img
+                    src={activePhoto}
+                    alt="Foto Profil Mahesyana"
+                    className="avatar-photo-img"
+                  />
+                ) : (
+                  <span className="avatar-fallback-icon">👨‍💻</span>
+                )}
               </div>
             </div>
 

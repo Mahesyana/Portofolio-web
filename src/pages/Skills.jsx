@@ -68,6 +68,18 @@ export default function Skills() {
         </div>
 
       </div>
+
+      {/* Catatan Kaki Integritas Akademik */}
+      <div className="app-card skills-integrity-notice">
+        <div className="integrity-notice-header">
+          <span className="integrity-icon">⚖️</span>
+          <h4>Komitmen Integritas Akademik &amp; Pemahaman Mandiri</h4>
+        </div>
+        <p>
+          Pengelompokan keahlian di atas disusun secara objektif dan jujur untuk keperluan evaluasi guru penguji. Kategori <strong>Sedang Dipelajari</strong> mencerminkan teknologi dan API browser yang dieksplorasi melalui bantuan AI (Claude &amp; ChatGPT) pada proyek portofolio, di mana saya masih mendalami pemahaman kodenya secara bertahap dan tidak mengklaimnya sebagai keahlian mandiri sebelum diuji secara tuntas.
+        </p>
+      </div>
+
     </div>
   );
 }

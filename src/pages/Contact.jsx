@@ -22,24 +22,32 @@ export default function Contact() {
 
         <div className="app-card contact-card-box">
           
-          {/* Row 1: Email Publik dengan Fitur Salin Cepat */}
+          {/* Row 1: Email Publik dengan Fitur Salin Cepat & Buka Mailto Langsung */}
           <div className="contact-item-row">
             <div className="contact-item-left">
               <span className="contact-item-label">Email Publik</span>
               <span className="contact-item-value">{email}</span>
             </div>
-            <button onClick={handleCopyEmail} style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--crimson)' }}>
-              {copied ? '✓ Tersalin!' : 'Salin'}
-            </button>
+            <div className="contact-actions-group">
+              <button onClick={handleCopyEmail} className="contact-action-btn contact-copy-btn">
+                {copied ? '✓ Tersalin!' : 'Salin'}
+              </button>
+              <a href={`mailto:${email}`} className="contact-action-btn contact-mailto-btn">
+                Kirim Email ✉️
+              </a>
+            </div>
           </div>
 
-          {/* Row 2: LinkedIn */}
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="contact-item-row">
+          {/* Row 2: LinkedIn (Tersambung & Terverifikasi) */}
+          <a href="https://linkedin.com/in/mahesyana" target="_blank" rel="noopener noreferrer" className="contact-item-row">
             <div className="contact-item-left">
               <span className="contact-item-label">LinkedIn</span>
               <span className="contact-item-value">linkedin.com/in/mahesyana</span>
             </div>
-            <span style={{ fontSize: '0.75rem', opacity: 0.5 }}>➔</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ fontSize: '0.6875rem', color: '#10b981', fontWeight: 600 }}>Aktif</span>
+              <span style={{ fontSize: '0.75rem', opacity: 0.5 }}>➔</span>
+            </div>
           </a>
 
           {/* Row 3: GitHub */}

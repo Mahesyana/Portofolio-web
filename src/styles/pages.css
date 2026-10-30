@@ -775,33 +775,6 @@
   -webkit-backdrop-filter: blur(20px);
 }
 
-/* Tombol Tutup Bulat Jelas di Pojok Kanan Atas */
-.project-lightbox-close-fixed {
-  position: fixed;
-  top: 1.5rem;
-  right: 1.5rem;
-  z-index: 110;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 9999px;
-  background-color: var(--surface);
-  border: 1px solid var(--surface-border);
-  color: var(--text-headline);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-.project-lightbox-close-fixed:hover {
-  transform: scale(1.1);
-  background-color: var(--crimson);
-  border-color: var(--crimson);
-  color: #ffffff;
-}
-
 .project-lightbox-content {
   position: relative;
   max-width: 92vw;

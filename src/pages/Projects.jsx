@@ -214,19 +214,8 @@ export default function Projects() {
         <div
           className="project-lightbox-backdrop"
           onClick={() => setZoomedImage(null)}
+          title="Klik di mana saja untuk menutup"
         >
-          {/* Tombol Tutup Floating Jelas di Pojok Kanan Atas */}
-          <button
-            className="project-lightbox-close-fixed"
-            onClick={() => setZoomedImage(null)}
-            aria-label="Tutup Pratinjau Gambar"
-            title="Tutup (Esc)"
-          >
-            <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-
           <div
             className="project-lightbox-content"
             onClick={(e) => e.stopPropagation()}

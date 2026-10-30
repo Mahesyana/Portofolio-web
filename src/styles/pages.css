@@ -464,10 +464,46 @@
 
 .project-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   padding-top: 1rem;
   border-top: 1px solid var(--surface-border);
+}
+
+.project-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.project-link-primary {
+  background-color: var(--crimson);
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(161, 27, 57, 0.25);
+}
+
+.project-link-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.project-link-outline {
+  border: 1px solid var(--surface-border);
+  color: var(--text-headline);
+  background-color: var(--surface);
+}
+
+.project-link-outline:hover {
+  border-color: var(--crimson);
+  color: var(--crimson);
+  transform: translateY(-1px);
 }
 
 /* 6. MINIGAME PAGE */

@@ -214,27 +214,46 @@ export default function Projects() {
         <div
           className="project-lightbox-backdrop"
           onClick={() => setZoomedImage(null)}
-          title="Klik di mana saja untuk menutup"
         >
+          {/* Tombol Tutup Floating Jelas di Pojok Kanan Atas */}
+          <button
+            className="project-lightbox-close-fixed"
+            onClick={() => setZoomedImage(null)}
+            aria-label="Tutup Pratinjau Gambar"
+            title="Tutup (Esc)"
+          >
+            <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
           <div
             className="project-lightbox-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              className="project-lightbox-close"
-              onClick={() => setZoomedImage(null)}
-              aria-label="Tutup Pratinjau Gambar"
-            >
-              ✕
-            </button>
-            <img
-              src={zoomedImage.url}
-              alt={zoomedImage.title}
-              className="project-lightbox-img"
-            />
-            <div className="project-lightbox-caption">
-              <span>{zoomedImage.title} — Pratinjau Tampilan Antarmuka</span>
-              <span className="project-lightbox-hint">Tekan Esc atau klik di luar gambar untuk menutup</span>
+            {/* Header Modal Beraksen Warna */}
+            <div className="project-lightbox-header">
+              <div className="project-lightbox-title-group">
+                <span className="project-lightbox-kamon-dot"></span>
+                <span className="project-lightbox-title">{zoomedImage.title}</span>
+                <span className="project-lightbox-badge">Tampilan Penuh</span>
+              </div>
+            </div>
+
+            {/* Frame Gambar dengan Efek Border Glow */}
+            <div className="project-lightbox-image-frame">
+              <img
+                src={zoomedImage.url}
+                alt={zoomedImage.title}
+                className="project-lightbox-img"
+              />
+            </div>
+
+            {/* Footer Modal dengan Hint Keyboard */}
+            <div className="project-lightbox-footer">
+              <span className="project-lightbox-hint">
+                Tekan tombol <kbd className="lightbox-kbd">Esc</kbd> atau klik area luar untuk menutup
+              </span>
             </div>
           </div>
         </div>

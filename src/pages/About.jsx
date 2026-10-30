@@ -7,7 +7,7 @@ export default function About() {
       <div className="page-header">
         <div className="page-eyebrow">Perkenalan Diri</div>
         <h1 className="page-title">Tentang Saya &amp; Perjalanan Belajar</h1>
-        <p className="page-subtitle">Mengenal latar belakang pendidikan, pengalaman praktik industri, dan prinsip pembelajaran.</p>
+        <p className="page-subtitle">Mengenal rekam jejak belajar, pengalaman praktik industri, dan prinsip pembelajaran.</p>
       </div>
 
       {/* 3 Kartu Sorotan Informasi */}
@@ -31,45 +31,59 @@ export default function About() {
         </div>
       </div>
 
-      {/* Bagian 1: Timeline Perjalanan Belajar */}
+      {/* Bagian 1: Timeline Perjalanan Belajar (4 Fase Utuh) */}
       <div className="about-section-container">
         <div className="about-section-heading">
           <h2>Perjalanan Belajar Pemrograman</h2>
-          <p>Alur perkembangan teknis dari bangku sekolah hingga pengalaman nyata industri.</p>
+          <p>Alur perkembangan teknis dari eksplorasi awal jenjang SMP hingga pengalaman industri.</p>
         </div>
 
         <div className="timeline-cards-list">
-          {/* Fase 1 */}
+          {/* Fase 01: Timedoor Academy */}
           <div className="app-card timeline-step-card">
             <span className="timeline-badge-number">01</span>
             <div className="timeline-body">
               <h3>
-                Fondasi Logika &amp; Algoritma
-                <span className="timeline-period-tag">• Kelas X</span>
+                Eksplorasi Awal &amp; Pelajaran dari Kegagalan
+                <span className="timeline-period-tag">• SMP (Timedoor Academy, 1,5 Tahun)</span>
               </h3>
               <p>
-                Mempelajari dasar logika pemrograman, algoritma dasar, pseudocode, pengenalan singkat HTML/CSS, serta bahasa pemrograman C++. Pada periode ini, saya menguji kemampuan logika dengan menyelesaikan proyek tugas kelompok sistem berbasis C++, dengan kontribusi mandiri sekitar 80% pada perancangan logika dan alur sistemnya.
+                Memulai langkah pertama di dunia pemrograman selama 1,5 tahun di Timedoor Academy, bertahap dari Scratch, dasar HTML/CSS/JavaScript, game development, hingga pengenalan mobile apps sebelum pindah ke Denpasar. Di fase ini saya mengalami titik krusial: proyek game JavaScript terhenti karena ekspektasi logika yang belum saya kuasai, sementara proyek website berhasil diselesaikan dengan rapi. Kegagalan tersebut sempat membuat saya ingin berhenti, namun dorongan tentang dampak positif teknologi membangkitkan tekad saya untuk melanjutkan pendidikan ke SMK jurusan RPL.
               </p>
             </div>
           </div>
 
-          {/* Fase 2 */}
+          {/* Fase 02: Kelas X SMK */}
           <div className="app-card timeline-step-card">
             <span className="timeline-badge-number">02</span>
             <div className="timeline-body">
               <h3>
-                Adaptasi Lingkungan Industri
-                <span className="timeline-period-tag">• Kelas XI (PKL 6 Bulan)</span>
+                Fondasi Logika &amp; Algoritma Pemrograman
+                <span className="timeline-period-tag">• Kelas X SMK</span>
               </h3>
               <p>
-                Menjalani program Praktik Kerja Lapangan (PKL) selama 6 bulan untuk beradaptasi dengan ritme kerja profesional dan standar kerja industri. Di samping tanggung jawab penugasan harian, pembimbing memberikan modul pelatihan serta proyek terarah guna memperluas wawasan dan kemampuan teknis dalam pengembangan website.
+                Memperdalam dasar algoritma pemrograman, pseudocode, pengenalan singkat HTML/CSS, dan bahasa C++. Di kelas X, saya menguji kemampuan logika computational thinking dengan menyelesaikan proyek tugas kelompok sistem berbasis C++, dengan kontribusi mandiri mencapai 80% pada perancangan logika dan alur sistemnya.
               </p>
             </div>
           </div>
 
-          {/* Fase 3 */}
+          {/* Fase 03: Kelas XI & PKL */}
           <div className="app-card timeline-step-card">
             <span className="timeline-badge-number">03</span>
+            <div className="timeline-body">
+              <h3>
+                Adaptasi Standar Kerja Industri
+                <span className="timeline-period-tag">• Kelas XI (PKL 6 Bulan)</span>
+              </h3>
+              <p>
+                Menjalani program Praktik Kerja Lapangan (PKL) selama 6 bulan untuk beradaptasi dengan ritme profesional dan standar kerja industri. Di samping tanggung jawab penugasan harian, pembimbing memberikan modul pelatihan serta proyek terarah guna memperluas wawasan dan kemampuan teknis dalam pengembangan website.
+              </p>
+            </div>
+          </div>
+
+          {/* Fase 04: Proyek Portofolio React */}
+          <div className="app-card timeline-step-card">
+            <span className="timeline-badge-number">04</span>
             <div className="timeline-body">
               <h3>
                 Tantangan Eksplorasi React 19
@@ -111,7 +125,7 @@ export default function About() {
             <div className="value-card-icon">🎯</div>
             <h3>Fokus Minat yang Realistis</h3>
             <p>
-              Memilih fokus di Front-End Web karena kenyamanan dan potensi ruang belajar yang jelas. Menjadikan evaluasi pengalaman masa lalu sebagai pelajaran terarah, serta menempatkan Back-End dan Mobile sebagai target pembelajaran fase berikutnya.
+              Belajar dari pengalaman proyek game di masa SMP yang melampaui batas pemahaman, kini saya fokus di Front-End Web dengan komitmen menyelesaikan apa yang dimulai secara terukur, sembari menyiapkan Back-End dan Mobile sebagai target berikutnya.
             </p>
           </div>
         </div>

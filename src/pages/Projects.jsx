@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import '../styles/pages.css';
 
 // Komponen penampil mockup gambar otomatis jika tersedia di folder public/projects/
-function ProjectMockupBox({ project }) {
+function ProjectMockupBox({ project, onZoom }) {
   const [imgUrl, setImgUrl] = useState(null);
 
   useEffect(() => {
@@ -34,12 +34,31 @@ function ProjectMockupBox({ project }) {
 
   if (imgUrl) {
     return (
-      <div className="project-image-preview-wrapper">
+      <div
+        className="project-image-preview-wrapper"
+        onClick={() => onZoom && onZoom({ url: imgUrl, title: project.title })}
+        title="Klik untuk memperbesar tampilan antarmuka"
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            onZoom && onZoom({ url: imgUrl, title: project.title });
+          }
+        }}
+      >
         <img
           src={imgUrl}
           alt={`Pratinjau tampilan antarmuka ${project.title}`}
           className="project-mockup-image"
         />
+        <div className="project-image-zoom-overlay">
+          <span className="zoom-icon-badge">
+            <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+            </svg>
+            Perbesar
+          </span>
+        </div>
       </div>
     );
   }
@@ -61,6 +80,29 @@ function ProjectMockupBox({ project }) {
 }
 
 export default function Projects() {
+  const [zoomedImage, setZoomedImage] = useState(null);
+
+  // Menutup Lightbox dengan tombol keyboard Escape & mengunci scroll latar
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setZoomedImage(null);
+      }
+    };
+
+    if (zoomedImage) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [zoomedImage]);
+
   // Data proyek nyata yang telah terverifikasi
   const projectsData = [
     {
@@ -109,8 +151,11 @@ export default function Projects() {
         {projectsData.map((project) => (
           <div key={project.id} className="app-card project-card">
             <div>
-              {/* Preview Window Box / Mockup Gambar Otomatis */}
-              <ProjectMockupBox project={project} />
+              {/* Preview Window Box / Mockup Gambar Otomatis dengan Fitur Zoom */}
+              <ProjectMockupBox
+                project={project}
+                onZoom={(imgData) => setZoomedImage(imgData)}
+              />
 
               {/* Status Badge */}
               <div className="project-status-row">
@@ -163,6 +208,37 @@ export default function Projects() {
           </div>
         ))}
       </div>
+
+      {/* Modal Lightbox Zoom untuk Tampilan Layar Penuh Gambar Proyek */}
+      {zoomedImage && (
+        <div
+          className="project-lightbox-backdrop"
+          onClick={() => setZoomedImage(null)}
+          title="Klik di mana saja untuk menutup"
+        >
+          <div
+            className="project-lightbox-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="project-lightbox-close"
+              onClick={() => setZoomedImage(null)}
+              aria-label="Tutup Pratinjau Gambar"
+            >
+              ✕
+            </button>
+            <img
+              src={zoomedImage.url}
+              alt={zoomedImage.title}
+              className="project-lightbox-img"
+            />
+            <div className="project-lightbox-caption">
+              <span>{zoomedImage.title} — Pratinjau Tampilan Antarmuka</span>
+              <span className="project-lightbox-hint">Tekan Esc atau klik di luar gambar untuk menutup</span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

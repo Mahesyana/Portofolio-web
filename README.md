@@ -77,5 +77,6 @@ portfolio-web/
 
 ## 👤 Pengembang
 
-- **Siswa Kelas XI Rekayasa Perangkat Lunak (RPL)**
+- **Nama:** I Gusti Made Dwi K Mahesyana
+- **Kelas/Jurusan:** Siswa Kelas XI Rekayasa Perangkat Lunak (RPL)
 - **Tenggat Pengumpulan:** 30 November 2026

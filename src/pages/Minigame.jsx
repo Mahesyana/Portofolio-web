@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../styles/pages.css';
 
 export default function Minigame() {
@@ -37,9 +38,9 @@ export default function Minigame() {
           </div>
 
           <div style={{ paddingTop: '1.5rem' }}>
-            <button className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+            <Link to="/minigame/flag-quiz" className="btn-primary" style={{ width: '100%', justifyContent: 'center', textDecoration: 'none' }}>
               Mulai Mainkan Flag Quiz ➔
-            </button>
+            </Link>
           </div>
         </div>
 

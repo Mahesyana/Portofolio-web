@@ -1050,3 +1050,314 @@
   color: var(--text-body);
   margin: 0;
 }
+
+
+/* ==========================================================================
+   FLAG QUIZ (MINIGAME) STYLES
+   Fitur Interaktif Utama Tugas Besar — Tahap 4
+   ========================================================================== */
+
+.flag-quiz-wrapper {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1rem 1rem 3rem;
+}
+
+.flag-quiz-card {
+  padding: 1.75rem;
+  border-radius: 1.35rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+@media (min-width: 640px) {
+  .flag-quiz-card {
+    padding: 2.5rem;
+  }
+}
+
+/* 1. Guide Screen Styles */
+.flag-guide-desc-box {
+  background-color: var(--surface-secondary, rgba(161, 27, 57, 0.04));
+  border: 1px solid var(--surface-border);
+  border-left: 3px solid var(--crimson);
+  border-radius: 0.85rem;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.flag-guide-desc-box p {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--text-body);
+  margin: 0;
+}
+
+.flag-guide-subtitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-headline);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.flag-guide-rules-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .flag-guide-rules-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.flag-rule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.95rem;
+  border-radius: 0.85rem;
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+}
+
+.flag-rule-num {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 9999px;
+  background-color: var(--crimson-light);
+  color: var(--crimson);
+  font-weight: 700;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.flag-rule-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-headline);
+  margin: 0 0 0.25rem;
+}
+
+.flag-rule-desc {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.flag-guide-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* 2. Playing Screen Styles */
+.flag-quiz-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.flag-score-badge {
+  font-size: 0.8125rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background-color: var(--crimson-light);
+  border: 1px solid var(--crimson-border);
+  color: var(--crimson);
+  font-family: var(--font-mono);
+}
+
+.flag-progress-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: var(--surface-border);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.flag-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--crimson), #ff4b72);
+  transition: width 0.3s ease;
+}
+
+.flag-display-area {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.flag-image-frame {
+  display: inline-block;
+  padding: 0.5rem;
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.25rem;
+}
+
+.flag-image-img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 0.65rem;
+  display: block;
+}
+
+.flag-question-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-headline);
+  margin: 0;
+}
+
+/* Options Grid */
+.flag-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.flag-option-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  border-radius: 0.85rem;
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  color: var(--text-headline);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.flag-option-btn:hover:not(:disabled) {
+  border-color: var(--crimson);
+  background-color: var(--crimson-light);
+  transform: translateX(4px);
+}
+
+.flag-option-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.5rem;
+  background-color: var(--surface-border);
+  color: var(--text-headline);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  margin-right: 0.85rem;
+  flex-shrink: 0;
+}
+
+.flag-option-name {
+  flex-grow: 1;
+}
+
+.flag-status-check {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.flag-status-cross {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #ef4444;
+}
+
+/* Locked states */
+.flag-option-btn.option-correct {
+  border-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+}
+
+.flag-option-btn.option-wrong {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+}
+
+.flag-option-btn.option-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Feedback Box */
+.flag-feedback-box {
+  padding: 1.25rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  animation: fadeIn 0.25s ease;
+}
+
+.feedback-correct {
+  background-color: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.feedback-wrong {
+  background-color: var(--crimson-light);
+  border: 1px solid var(--crimson-border);
+}
+
+.feedback-status-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-headline);
+  margin-bottom: 0.4rem;
+}
+
+.feedback-funfact {
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--text-body);
+  margin: 0;
+}
+
+/* 3. Result Screen Styles */
+.flag-result-score-circle {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  background-color: var(--crimson-light);
+  border: 2px solid var(--crimson-border);
+  margin: 1.25rem auto 1.5rem;
+}
+
+.flag-result-score-num {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--crimson);
+  line-height: 1;
+}
+
+.flag-result-score-total {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}

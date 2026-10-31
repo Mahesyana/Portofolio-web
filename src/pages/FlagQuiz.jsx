@@ -103,7 +103,7 @@ export default function FlagQuiz() {
               <span>🏁</span> FITUR INTERAKTIF UTAMA
             </div>
             <h1 className="page-title" style={{ fontSize: '2rem', marginTop: '0.5rem' }}>
-              Flag Quiz — Tebak Bendera Dunia
+              Flag Quiz - Tebak Bendera Dunia
             </h1>
             <p className="page-subtitle" style={{ maxWidth: '34rem', margin: '0 auto' }}>
               Uji ketajaman wawasan geografimu dengan menebak bendera 10 negara terkenal dunia dalam 5 ronde acak.

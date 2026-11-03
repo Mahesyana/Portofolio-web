@@ -16,7 +16,7 @@ export default function Minigame() {
         <div className="app-card minigame-featured-card">
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-              <span style={{ fontSize: '2rem' }}>🏁</span>
+              <span className="minigame-card-icon">🏁</span>
               <span className="project-status-badge" style={{ backgroundColor: 'var(--crimson)', color: '#ffffff' }}>
                 FITUR UTAMA WAJIB
               </span>
@@ -48,7 +48,7 @@ export default function Minigame() {
         <div className="app-card minigame-secondary-card">
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-              <span style={{ fontSize: '2rem' }}>📊</span>
+              <span className="minigame-card-icon">📊</span>
               <span className="project-status-badge tag-mastered">FITUR TAMBAHAN AKTIF</span>
             </div>
 

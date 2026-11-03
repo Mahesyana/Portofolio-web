@@ -44,12 +44,12 @@ export default function Minigame() {
           </div>
         </div>
 
-        {/* Game 2: Programming Language Tier List (Fitur Opsional) */}
+        {/* Game 2: Programming Language Tier List (Fitur Interaktif 2) */}
         <div className="app-card minigame-secondary-card">
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
               <span style={{ fontSize: '2rem' }}>📊</span>
-              <span className="project-status-badge tag-tools">Fitur Opsional</span>
+              <span className="project-status-badge tag-mastered">FITUR TAMBAHAN AKTIF</span>
             </div>
 
             <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '0.5rem' }}>
@@ -57,19 +57,20 @@ export default function Minigame() {
             </h3>
 
             <p className="project-desc">
-              Editor seret dan lepas (*drag-and-drop*) untuk menyusun bahasa pemrograman favorit ke kategori penilaian: Bagus, Biasa Aja, dan Kurang.
+              Editor seret dan lepas (*drag-and-drop*) untuk menyusun 8 bahasa pemrograman favorit ke kategori penilaian: Bagus, Biasa, dan Kurang.
             </p>
 
             <div style={{ display: 'flex', gap: '0.75rem', fontSize: '0.6875rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
               <span>• Drag &amp; Drop</span>
-              <span>• Prioritas 3</span>
+              <span>• 8 Bahasa</span>
+              <span>• Mobile Friendly</span>
             </div>
           </div>
 
           <div style={{ paddingTop: '1.5rem' }}>
-            <button className="btn-secondary" style={{ width: '100%', justifyContent: 'center', opacity: 0.6, cursor: 'not-allowed' }}>
-              🔒 Akan Dibuka Setelah Flag Quiz Selesai
-            </button>
+            <Link to="/minigame/tier-list" className="btn-secondary" style={{ width: '100%', justifyContent: 'center', textDecoration: 'none' }}>
+              Buka Language Tier List ➔
+            </Link>
           </div>
         </div>
 

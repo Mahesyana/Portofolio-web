@@ -9,6 +9,7 @@ import Skills from './pages/Skills';
 import Projects from './pages/Projects';
 import Minigame from './pages/Minigame';
 import FlagQuiz from './pages/FlagQuiz';
+import TierList from './pages/TierList';
 import Contact from './pages/Contact';
 
 import './index.css';
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/minigame" element={<Minigame />} />
             <Route path="/minigame/flag-quiz" element={<FlagQuiz />} />
+            <Route path="/minigame/tier-list" element={<TierList />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

@@ -1574,3 +1574,18 @@
   transform: translateX(4px);
   filter: brightness(1.05);
 }
+
+/* 404 NOT FOUND PAGE */
+.not-found-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: var(--crimson-light);
+  border: 1px solid var(--crimson-border);
+  color: var(--crimson);
+}
+

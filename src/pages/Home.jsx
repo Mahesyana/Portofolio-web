@@ -2,28 +2,28 @@ import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../styles/pages.css';
 
-export default function Home() {
-  // Daftar kemungkinan nama file foto yang ditaruh di folder public/
-  const candidateImages = [
-    '/profile.jpg',
-    '/profile.png',
-    '/profile.jpeg',
-    '/avatar.jpg',
-    '/avatar.png',
-    '/foto_profil.jpg',
-  ];
+// Daftar kemungkinan nama file foto yang ditaruh di folder public/
+const CANDIDATE_IMAGES = [
+  '/profile.jpg',
+  '/profile.png',
+  '/profile.jpeg',
+  '/avatar.jpg',
+  '/avatar.png',
+  '/foto_profil.jpg',
+];
 
+export default function Home() {
   const [activePhoto, setActivePhoto] = useState(null);
 
   useEffect(() => {
     // Mengecek apakah salah satu nama file foto tersedia di folder public/
     let isMounted = true;
     const testImage = (index) => {
-      if (index >= candidateImages.length) return;
+      if (index >= CANDIDATE_IMAGES.length) return;
       const img = new Image();
-      img.src = candidateImages[index];
+      img.src = CANDIDATE_IMAGES[index];
       img.onload = () => {
-        if (isMounted) setActivePhoto(candidateImages[index]);
+        if (isMounted) setActivePhoto(CANDIDATE_IMAGES[index]);
       };
       img.onerror = () => {
         testImage(index + 1);

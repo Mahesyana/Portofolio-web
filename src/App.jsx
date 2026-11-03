@@ -1,8 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-// Impor ke-6 Halaman Utama
+// Impor ke-6 Halaman Utama & Fitur Interaktif
 import Home from './pages/Home';
 import About from './pages/About';
 import Skills from './pages/Skills';
@@ -11,12 +12,25 @@ import Minigame from './pages/Minigame';
 import FlagQuiz from './pages/FlagQuiz';
 import TierList from './pages/TierList';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 import './index.css';
+
+// Helper agar halaman otomatis scroll ke posisi paling atas saat berpindah rute
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="app-canvas">
         {/* 1. Navbar Menempel di Bagian Atas */}
         <Navbar />
@@ -32,6 +46,8 @@ export default function App() {
             <Route path="/minigame/flag-quiz" element={<FlagQuiz />} />
             <Route path="/minigame/tier-list" element={<TierList />} />
             <Route path="/contact" element={<Contact />} />
+            {/* Halaman 404 jika rute tidak ditemukan */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
 

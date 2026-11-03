@@ -12,7 +12,7 @@ export default function Minigame() {
 
       <div className="minigame-hub-grid">
         
-        {/* Game 1: Flag Quiz (Fitur Wajib Utama yang Akan Dibangun di Tahap 4) */}
+        {/* Game 1: Flag Quiz (Fitur Wajib Utama Aktif) */}
         <div className="app-card minigame-featured-card">
           <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
@@ -68,7 +68,7 @@ export default function Minigame() {
           </div>
 
           <div style={{ paddingTop: '1.5rem' }}>
-            <Link to="/minigame/tier-list" className="btn-secondary" style={{ width: '100%', justifyContent: 'center', textDecoration: 'none' }}>
+            <Link to="/minigame/tier-list" className="btn-primary" style={{ width: '100%', justifyContent: 'center', textDecoration: 'none' }}>
               Buka Language Tier List ➔
             </Link>
           </div>

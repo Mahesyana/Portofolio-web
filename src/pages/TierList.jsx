@@ -194,7 +194,7 @@ export default function TierList() {
 
       {/* Baris Tombol Aksi Bawah */}
       <div className="tier-bottom-actions">
-        <button onClick={handleReset} className="btn-secondary" style={{ padding: '0.75rem 1.5rem' }}>
+        <button onClick={handleReset} className="btn-primary" style={{ padding: '0.75rem 1.5rem' }}>
           Reset Susunan ↺
         </button>
         <Link to="/minigame" className="btn-secondary" style={{ textDecoration: 'none' }}>

@@ -8,17 +8,20 @@ Proyek ini dibangun sebagai tugas besar Rekayasa Perangkat Lunak (RPL) menggunak
 
 ## 🚀 Fitur Utama
 
-- **Multi-Page Routing:** Navigasi cepat tanpa reload halaman menggunakan `react-router-dom`.
+- **Multi-Page Routing:** Navigasi cepat tanpa reload halaman menggunakan `react-router-dom` dengan dukungan penanganan rute tidak ditemukan (404 Not Found) dan *auto-scroll to top*.
 - **Halaman Lengkap:**
-  - `Home`: Perkenalan diri, foto/avatar, dan tujuan karier.
-  - `About Me`: Latar belakang pendidikan RPL dan perjalanan belajar pemrograman.
-  - `Skills`: Keterampilan teknis yang dikuasai secara jujur dan terstruktur.
-  - `Projects`: Portofolio karya (*SagaraS Music Tierlist* & *Untitled Studio*).
-  - `Minigame`: Hub fitur interaktif berisi **Flag Quiz** (kuis tebak bendera 5 ronde dengan skor anti-spam) dan wadah game mendatang.
-  - `Contact`: Informasi kontak profesional (Email, GitHub, LinkedIn).
+  - `Home`: Perkenalan diri, foto/avatar otomatis, quick highlights, dan tujuan karier.
+  - `About Me`: Latar belakang pendidikan RPL, timeline 4 fase perjalanan belajar, dan 3 prinsip pembelajaran mandiri.
+  - `Skills`: Keterampilan teknis yang dikuasai secara jujur dan transparan (Core Web, Modern Stack, Browser APIs, Workflow).
+  - `Projects`: Portofolio karya (*SagaraS Music Tierlist* & *Untitled Studio*) dilengkapi modal **Lightbox Zoom** layar penuh dan tautan live demo Vercel.
+  - `Minigame Hub`: Katalog dua fitur interaktif mandiri:
+    1. **Flag Quiz:** Kuis tebak bendera 5 ronde acak dari dataset 10 bendera SVG resmi dengan sistem kunci anti-spam dan fun fact edukatif.
+    2. **Language Tier List:** Papan penyusunan tier 8 bahasa pemrograman interaktif berbasis HTML5 Drag & Drop dan tombol *Quick Move* ramah layar sentuh HP.
+  - `Contact`: Informasi kontak profesional (Email publik satu klik salin, mailto instan, GitHub, LinkedIn).
 - **Desain Minimalis Jepang:**
-  - Dominasi warna bersih: Hitam Tinta (`#18181B`), Putih/Off-white (`#FBFBFB`), Abu-abu netral (`#52525B`).
-  - Aksen elegan: *Deep Japanese Crimson* (`#A11B39`).
+  - Dominasi warna bersih: Hitam Tinta (*sumi* `#18181B`), Putih/Off-white (`#FAFAFA`), Abu-abu netral (`#52525B`).
+  - Aksen elegan: *Deep Japanese Crimson* (`#A11B39`) dan pendaran Crimson Aurora di dasar halaman.
+  - Saklar mode gelap & terang (*Night Mode / Light Mode Switcher*) di header navigasi.
   - Responsif penuh untuk perangkat Desktop, Tablet, dan Smartphone.
 
 ---

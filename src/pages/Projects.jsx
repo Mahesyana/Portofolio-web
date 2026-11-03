@@ -36,13 +36,15 @@ function ProjectMockupBox({ project, onZoom }) {
     return (
       <div
         className="project-image-preview-wrapper"
-        onClick={() => onZoom && onZoom({ url: imgUrl, title: project.title })}
+        onClick={() => {
+          if (onZoom) onZoom({ url: imgUrl, title: project.title });
+        }}
         title="Klik untuk memperbesar tampilan antarmuka"
         role="button"
         tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
-            onZoom && onZoom({ url: imgUrl, title: project.title });
+            if (onZoom) onZoom({ url: imgUrl, title: project.title });
           }
         }}
       >

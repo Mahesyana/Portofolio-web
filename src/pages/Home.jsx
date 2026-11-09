@@ -105,7 +105,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="avatar-name">Mahesyana</div>
+            <div className="avatar-name">I Gusti Made Dwi K Mahesyana</div>
             <div className="avatar-subtitle">Siswa Kelas XI RPL</div>
 
             {/* Stempel Merah Tradisional (Hanko) */}

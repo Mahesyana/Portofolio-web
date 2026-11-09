@@ -150,6 +150,13 @@
   justify-content: center;
 }
 
+@media (max-width: 767px) {
+  .avatar-card-wrapper {
+    order: -1; /* Poin 3: Menempatkan avatar foto di posisi paling atas pada layar HP */
+    margin-bottom: 0.5rem;
+  }
+}
+
 .avatar-card {
   position: relative;
   width: 100%;
@@ -1636,3 +1643,440 @@
   color: var(--crimson);
 }
 
+
+
+/* ==========================================================================
+   TRANSISI HALUS ANTAR HALAMAN (PAGE TRANSITION)
+   ========================================================================== */
+@keyframes pageEnterFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition-wrap {
+  animation: pageEnterFade 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+/* ==========================================================================
+   HALAMAN KHUSUS DETAIL PROYEK & SLIDER MOCKUP (PROJECT DETAIL)
+   ========================================================================== */
+.project-detail-container {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.project-detail-breadcrumb {
+  margin-bottom: 1.25rem;
+}
+
+.detail-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  color: var(--text-body);
+  transition: all 0.2s ease;
+}
+
+.detail-back-link:hover {
+  border-color: var(--crimson);
+  color: var(--crimson);
+  transform: translateX(-3px);
+}
+
+.project-detail-card {
+  padding: 1.75rem 1.25rem;
+  border-radius: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .project-detail-card {
+    padding: 2.25rem 2rem;
+  }
+}
+
+.project-detail-header {
+  border-bottom: 1px solid var(--surface-border);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.project-category-text {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.project-detail-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-headline);
+  letter-spacing: -0.02em;
+  margin: 0.5rem 0 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .project-detail-title {
+    font-size: 2.25rem;
+  }
+}
+
+.project-detail-subtitle {
+  font-size: 0.8125rem;
+  font-family: var(--font-mono);
+  color: var(--crimson);
+}
+
+/* --- SLIDER MOCKUP SECTION --- */
+.project-slider-section {
+  margin-bottom: 2rem;
+}
+
+.slider-header-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.slider-label-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.slider-label-title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-headline);
+}
+
+.slider-counter-badge {
+  font-size: 0.6875rem;
+  font-family: var(--font-mono);
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  background-color: var(--surface);
+  border: 1px solid var(--surface-border);
+  color: var(--text-muted);
+}
+
+.project-slider-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 220px;
+  border-radius: 1.25rem;
+  background-color: #0b0f19;
+  border: 1px solid var(--surface-border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.2);
+}
+
+.project-slider-viewport {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: zoom-in;
+}
+
+.project-slider-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Animasi Geser Slide Gambar */
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideFadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slide-anim-next {
+  animation: slideFromRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.slide-anim-prev {
+  animation: slideFromLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.slide-anim-fade {
+  animation: slideFadeScale 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Tombol Navigasi Slider Panah */
+.slider-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.slider-nav-btn:hover {
+  background-color: var(--crimson);
+  border-color: var(--crimson);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.slider-btn-prev {
+  left: 0.85rem;
+}
+
+.slider-btn-next {
+  right: 0.85rem;
+}
+
+/* Dots Indikator Bar */
+.slider-dots-bar {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.slider-dot-item {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.45);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.slider-dot-item.active {
+  width: 1.5rem;
+  background-color: var(--crimson);
+}
+
+/* Caption Keterangan Slide */
+.slider-caption-box {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.85rem;
+  background-color: var(--bg-canvas);
+  border: 1px solid var(--surface-border);
+}
+
+.slider-caption-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-headline);
+}
+
+.slider-caption-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+/* --- GRID 4 SEKSI KONTEN DETAIL --- */
+.project-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+  .project-detail-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.detail-content-card {
+  padding: 1.25rem 1.5rem;
+  border-radius: 1.15rem;
+}
+
+.detail-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.detail-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detail-card-header h3 {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-headline);
+  margin: 0;
+}
+
+.detail-text-paragraph {
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+.detail-tech-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detail-tech-badge {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.65rem;
+  background-color: var(--bg-canvas);
+  border: 1px solid var(--surface-border);
+}
+
+.tech-badge-name {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-headline);
+}
+
+.tech-badge-desc {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.detail-card-role {
+  grid-column: 1 / -1;
+  border-left: 3.5px solid var(--crimson);
+}
+
+.detail-role-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.detail-role-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+.role-bullet {
+  color: var(--crimson);
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
+}
+
+.detail-card-opinion {
+  grid-column: 1 / -1;
+  border-left: 3.5px solid #f59e0b;
+}
+
+.detail-opinion-quote {
+  font-size: 0.8125rem;
+  font-style: italic;
+  line-height: 1.75;
+  color: var(--text-body);
+  margin: 0;
+  padding: 0.25rem 0;
+}
+
+.placeholder-note-badge {
+  font-size: 0.625rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background-color: var(--crimson-light);
+  border: 1px solid var(--crimson-border);
+  color: var(--crimson);
+}
+
+/* --- TOMBOL AKSI TAUTAN EKSTERNAL DETAIL --- */
+.project-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--surface-border);
+}
+
+.detail-action-btn {
+  flex: 1 1 200px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  text-decoration: none;
+}

@@ -4,11 +4,11 @@ import '../styles/pages.css';
 
 // Daftar kemungkinan nama file foto yang ditaruh di folder public/
 const CANDIDATE_IMAGES = [
+  '/avatar.jpg',
+  '/avatar.png',
   '/profile.jpg',
   '/profile.png',
   '/profile.jpeg',
-  '/avatar.jpg',
-  '/avatar.png',
   '/foto_profil.jpg',
 ];
 

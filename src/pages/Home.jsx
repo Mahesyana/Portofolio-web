@@ -51,7 +51,7 @@ export default function Home() {
           </h1>
 
           <p className="hero-description">
-            Fokus belajar membangun antarmuka website yang bersih, responsif, dan interaktif dengan sentuhan estetika minimalis Jepang.
+            Fokus belajar membangun antarmuka website yang bersih, responsif, dan interaktif.
           </p>
 
           <div className="hero-cta-group">

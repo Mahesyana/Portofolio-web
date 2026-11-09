@@ -1696,21 +1696,57 @@
   transform: translateX(-3px);
 }
 
+.project-detail-container {
+  padding-top: 1.25rem;
+  padding-bottom: 2.5rem;
+  max-width: 1240px;
+}
+
+.project-detail-breadcrumb {
+  margin-bottom: 1rem;
+}
+
 .project-detail-card {
-  padding: 1.75rem 1.25rem;
+  padding: 1.25rem 1rem;
   border-radius: 1.5rem;
 }
 
 @media (min-width: 640px) {
   .project-detail-card {
-    padding: 2.25rem 2rem;
+    padding: 1.75rem 1.75rem;
   }
+}
+
+/* --- TATA LETAK 2 KOLOM (PADAT KANAN-KIRI) MINIMALISIR SCROLL --- */
+.project-detail-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .project-detail-layout {
+    display: grid;
+    grid-template-columns: 1.12fr 1fr;
+    gap: 1.75rem;
+    align-items: start;
+  }
+}
+
+.project-detail-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.project-detail-right-col {
+  display: flex;
+  flex-direction: column;
 }
 
 .project-detail-header {
   border-bottom: 1px solid var(--surface-border);
-  padding-bottom: 1.25rem;
-  margin-bottom: 1.75rem;
+  padding-bottom: 0.85rem;
 }
 
 .project-category-text {
@@ -1719,16 +1755,16 @@
 }
 
 .project-detail-title {
-  font-size: 1.85rem;
+  font-size: 1.65rem;
   font-weight: 800;
   color: var(--text-headline);
   letter-spacing: -0.02em;
-  margin: 0.5rem 0 0.25rem;
+  margin: 0.35rem 0 0.15rem;
 }
 
 @media (min-width: 640px) {
   .project-detail-title {
-    font-size: 2.25rem;
+    font-size: 1.95rem;
   }
 }
 
@@ -1740,14 +1776,14 @@
 
 /* --- SLIDER MOCKUP SECTION --- */
 .project-slider-section {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .slider-header-info {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
 }
 
 .slider-label-group {
@@ -1852,15 +1888,15 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
   border-radius: 9999px;
   background-color: rgba(0, 0, 0, 0.65);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.2s ease;
@@ -1875,24 +1911,24 @@
 }
 
 .slider-btn-prev {
-  left: 0.85rem;
+  left: 0.75rem;
 }
 
 .slider-btn-next {
-  right: 0.85rem;
+  right: 0.75rem;
 }
 
 /* Dots Indikator Bar */
 .slider-dots-bar {
   position: absolute;
-  bottom: 0.85rem;
+  bottom: 0.75rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 0.5rem;
   background-color: rgba(0, 0, 0, 0.55);
-  padding: 0.35rem 0.75rem;
+  padding: 0.3rem 0.65rem;
   border-radius: 9999px;
   backdrop-filter: blur(8px);
   z-index: 10;
@@ -1900,8 +1936,8 @@
 }
 
 .slider-dot-item {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.45rem;
+  height: 0.45rem;
   border-radius: 9999px;
   background-color: rgba(255, 255, 255, 0.45);
   border: none;
@@ -1911,21 +1947,21 @@
 }
 
 .slider-dot-item.active {
-  width: 1.5rem;
+  width: 1.35rem;
   background-color: var(--crimson);
 }
 
-/* Caption Keterangan Slide */
+/* Caption Keterangan Slide Rapi */
 .slider-caption-box {
-  margin-top: 0.75rem;
-  padding: 0.75rem 1rem;
+  margin-top: 0.65rem;
+  padding: 0.65rem 0.85rem;
   border-radius: 0.85rem;
   background-color: var(--bg-canvas);
   border: 1px solid var(--surface-border);
 }
 
 .slider-caption-title {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   color: var(--text-headline);
 }
@@ -1933,84 +1969,111 @@
 .slider-caption-desc {
   font-size: 0.75rem;
   color: var(--text-muted);
-  margin-top: 0.2rem;
+  margin-top: 0.15rem;
+  line-height: 1.45;
 }
 
-/* --- GRID 4 SEKSI KONTEN DETAIL --- */
+/* --- TOMBOL AKSI TAUTAN EKSTERNAL (TEPAT DI BAWAH SLIDER) --- */
+.project-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 0.25rem;
+}
+
+.detail-action-btn {
+  flex: 1 1 180px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+}
+
+/* --- GRID 4 SEKSI KONTEN DETAIL (KOLOM KANAN TERSTRUKTUR & PADAT) --- */
 .project-detail-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-  margin-bottom: 2rem;
-}
-
-@media (min-width: 640px) {
-  .project-detail-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 0;
 }
 
 .detail-content-card {
-  padding: 1.25rem 1.5rem;
-  border-radius: 1.15rem;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
 }
 
+/* PERBAIKAN HEADER KARTU (RAPAT, SEJAJAR KIRI, TANPA CELAH KOSONG) */
 .detail-card-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  margin-bottom: 0.85rem;
+  justify-content: flex-start;
+  gap: 0.65rem;
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--surface-border);
 }
 
-.detail-header-left {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.detail-icon {
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .detail-card-header h3 {
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   color: var(--text-headline);
   margin: 0;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .detail-text-paragraph {
   font-size: 0.8125rem;
-  line-height: 1.7;
+  line-height: 1.65;
   color: var(--text-body);
 }
 
 .detail-tech-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 0.5rem;
+}
+
+@media (min-width: 480px) {
+  .detail-tech-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .detail-tech-badge {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 0.75rem;
+  padding: 0.45rem 0.65rem;
   border-radius: 0.65rem;
   background-color: var(--bg-canvas);
   border: 1px solid var(--surface-border);
 }
 
 .tech-badge-name {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--text-headline);
+  color: var(--crimson);
 }
 
 .tech-badge-desc {
   font-size: 0.6875rem;
   color: var(--text-muted);
-  margin-top: 0.15rem;
+  margin-top: 0.1rem;
+  line-height: 1.35;
 }
 
 .detail-card-role {
-  grid-column: 1 / -1;
   border-left: 3.5px solid var(--crimson);
 }
 
@@ -2020,63 +2083,34 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.5rem;
 }
 
 .detail-role-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.65rem;
+  gap: 0.5rem;
   font-size: 0.8125rem;
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--text-body);
 }
 
 .role-bullet {
   color: var(--crimson);
   font-size: 0.75rem;
-  margin-top: 0.2rem;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
 }
 
 .detail-card-opinion {
-  grid-column: 1 / -1;
   border-left: 3.5px solid #f59e0b;
 }
 
 .detail-opinion-quote {
   font-size: 0.8125rem;
   font-style: italic;
-  line-height: 1.75;
+  line-height: 1.65;
   color: var(--text-body);
   margin: 0;
-  padding: 0.25rem 0;
-}
-
-.placeholder-note-badge {
-  font-size: 0.625rem;
-  font-weight: 600;
-  padding: 0.2rem 0.55rem;
-  border-radius: 9999px;
-  background-color: var(--crimson-light);
-  border: 1px solid var(--crimson-border);
-  color: var(--crimson);
-}
-
-/* --- TOMBOL AKSI TAUTAN EKSTERNAL DETAIL --- */
-.project-detail-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--surface-border);
-}
-
-.detail-action-btn {
-  flex: 1 1 200px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.85rem 1.5rem;
-  text-decoration: none;
+  padding: 0.1rem 0;
 }

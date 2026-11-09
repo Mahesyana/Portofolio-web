@@ -49,7 +49,7 @@ export const PROJECTS_DATA = [
       { name: 'CSS3 Neon Theme', desc: 'Styling tema gelap modern dengan efek pendaran warna.' }
     ],
 
-    // Peran Saya (Teks Sampel Placeholder — Bebas Diubah)
+    // Peran Siswa dalam Pembuatan Website
     myRole: [
       'Merumuskan ide dasar, tema visual Neon Nocturne, serta kebutuhan fungsional sistem klasifikasi musik.',
       'Bertindak sebagai perumus prompt (prompt engineer) menggunakan ChatGPT untuk arsitektur dan Claude untuk pembuatan kode.',
@@ -57,7 +57,7 @@ export const PROJECTS_DATA = [
       'Mempelajari alur baris kode yang dihasilkan secara bertahap demi menjaga komitmen integritas akademik sekolah.'
     ],
 
-    // Pendapat & Refleksi Saya (Teks Sampel Placeholder — Bebas Diubah)
+    // Pendapat & Refleksi Pribadi Siswa
     myOpinion:
       'Proyek ini merupakan sarana eksplorasi yang sangat memuaskan bagi saya. Di sini saya belajar bagaimana teknologi web browser modern seperti IndexedDB dan Canvas API bisa bekerja sama menciptakan aplikasi web tanpa ketergantungan server luar. Konsep tier list dari proyek inilah yang menginspirasi saya untuk membangun fitur Language Tier List pada website tugas besar ini.',
 
@@ -110,7 +110,7 @@ export const PROJECTS_DATA = [
       { name: 'Responsive Web Design', desc: 'Penyesuaian tata letak otomatis untuk berbagai ukuran layar.' }
     ],
 
-    // Peran Saya (Teks Sampel Placeholder — Bebas Diubah)
+    // Peran Siswa dalam Pembuatan Website
     myRole: [
       'Merancang konsep visual studio kreatif dan copywriting penawaran layanan pembuatan website.',
       'Menulis struktur kode HTML5 semantik dan styling CSS modern secara mandiri.',
@@ -118,7 +118,7 @@ export const PROJECTS_DATA = [
       'Mengelola repositori kode Git serta mengonfigurasi deployment live demo ke platform Vercel.'
     ],
 
-    // Pendapat & Refleksi Saya (Teks Sampel Placeholder — Bebas Diubah)
+    // Pendapat & Refleksi Pribadi Siswa
     myOpinion:
       'Melalui Untitled Studio, saya melatih kembali fondasi dasar HTML dan CSS murni tanpa bantuan framework besar. Proyek ini mengajarkan saya pentingnya tata letak yang konsisten dan kenyamanan membaca bagi pengunjung. Tantangan yang sedang saya selesaikan adalah melanjutkan pengerjaan halaman About dan Services agar website agensi ini dapat beroperasi secara penuh.',
 

@@ -17,6 +17,10 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  background-color: var(--bg-canvas);
+  /* Mengunci ruang scrollbar secara permanen agar letak Navbar tidak pernah bergeser (layout shift) saat berpindah antarhalaman pendek dan panjang */
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
 }
 
 body {

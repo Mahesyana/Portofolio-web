@@ -3,57 +3,32 @@ import { Link } from 'react-router-dom';
 import { PROJECTS_DATA } from '../data/projectsData';
 import '../styles/pages.css';
 
-// Komponen penampil mockup gambar otomatis jika tersedia di folder public/projects/
+// Komponen penampil 1 gambar utama gambaran besar proyek pada kartu katalog
 function ProjectMockupBox({ project, onZoom }) {
-  const [imgUrl, setImgUrl] = useState(null);
+  const [imgError, setImgError] = useState(false);
+  const coverUrl = project.coverImage || project.images?.[0]?.url;
 
-  useEffect(() => {
-    let isMounted = true;
-    const candidates = [
-      `/projects/${project.id}.png`,
-      `/projects/${project.id}.jpg`,
-      `/projects/${project.id}.jpeg`,
-      `/projects/${project.id}.webp`,
-    ];
-
-    const testCandidate = (idx) => {
-      if (idx >= candidates.length) return;
-      const test = new Image();
-      test.src = candidates[idx];
-      test.onload = () => {
-        if (isMounted) setImgUrl(candidates[idx]);
-      };
-      test.onerror = () => {
-        testCandidate(idx + 1);
-      };
-    };
-
-    testCandidate(0);
-    return () => {
-      isMounted = false;
-    };
-  }, [project.id]);
-
-  if (imgUrl) {
+  if (coverUrl && !imgError) {
     return (
       <div
         className="project-image-preview-wrapper"
         onClick={() => {
-          if (onZoom) onZoom({ url: imgUrl, title: project.title });
+          if (onZoom) onZoom({ url: coverUrl, title: project.title });
         }}
         title="Klik untuk memperbesar tampilan antarmuka"
         role="button"
         tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
-            if (onZoom) onZoom({ url: imgUrl, title: project.title });
+            if (onZoom) onZoom({ url: coverUrl, title: project.title });
           }
         }}
       >
         <img
-          src={imgUrl}
-          alt={`Pratinjau tampilan antarmuka ${project.title}`}
+          src={coverUrl}
+          alt={`Pratinjau tampilan utama ${project.title}`}
           className="project-mockup-image"
+          onError={() => setImgError(true)}
         />
         <div className="project-image-zoom-overlay">
           <span className="zoom-icon-badge">

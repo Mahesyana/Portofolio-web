@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FLAGS_DATA } from '../data/flagsData';
 import '../styles/pages.css';
@@ -40,6 +40,11 @@ export default function FlagQuiz() {
   const [selectedOptionId, setSelectedOptionId] = useState(null);
   const [isAnswerLocked, setIsAnswerLocked] = useState(false);
   const [roundFeedback, setRoundFeedback] = useState(null);
+
+  // Otomatis kembali ke bagian atas saat berpindah layar (panduan/bermain/hasil) atau lanjut ronde
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [gameState, currentRoundIndex]);
 
   // 1. Memulai Permainan
   const handleStartGame = () => {

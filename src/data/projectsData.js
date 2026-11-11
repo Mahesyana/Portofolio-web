@@ -100,7 +100,7 @@ export const PROJECTS_DATA = [
       {
         url: '/projects/untitled-studio-progress.png',
         title: 'Halaman Sekunder (Status Under Progress)',
-        caption: 'Halaman lanjutan seperti Service dan About yang masih dalam proses pengembangan bertahap.'
+        caption: 'Halaman - halaman lanjutan seperti Service dan About yang masih dalam proses pengembangan bertahap.'
       }
     ],
 

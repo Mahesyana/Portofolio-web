@@ -39,11 +39,11 @@ export default function Contact() {
           </div>
 
           {/* Row 2: LinkedIn (Tersambung & Terverifikasi) */}
-          <a href="https://linkedin.com/in/mahesyana" target="_blank" rel="noopener noreferrer" className="contact-item-row">
+          <a href="https://www.linkedin.com/in/i-gusti-made-dwi-k-mahesyana-370578447/" target="_blank" rel="noopener noreferrer" className="contact-item-row">
             <div className="contact-item-left">
               <span className="contact-item-label">LinkedIn</span>
               <span className="contact-item-value">linkedin.com/in/mahesyana</span>
-            </div>
+            </div>z
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <span style={{ fontSize: '0.6875rem', color: '#10b981', fontWeight: 600 }}>Aktif</span>
               <span style={{ fontSize: '0.75rem', opacity: 0.5 }}>➔</span>

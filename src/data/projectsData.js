@@ -102,7 +102,7 @@ export const PROJECTS_DATA = [
         title: 'Halaman Sekunder (Status Under Progress)',
         caption: 'Halaman - halaman lanjutan seperti Service dan About yang masih dalam proses pengembangan bertahap.'
       }
-    ],
+    ],  
 
     // Rincian Teknologi
     techStack: [

@@ -43,7 +43,7 @@ export default function Contact() {
             <div className="contact-item-left">
               <span className="contact-item-label">LinkedIn</span>
               <span className="contact-item-value">linkedin.com/in/mahesyana</span>
-            </div>z
+            </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <span style={{ fontSize: '0.6875rem', color: '#10b981', fontWeight: 600 }}>Aktif</span>
               <span style={{ fontSize: '0.75rem', opacity: 0.5 }}>➔</span>

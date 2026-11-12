@@ -33,6 +33,14 @@ body {
   min-height: 100vh;
 }
 
+/* Mengunci scroll halaman secara penuh (desktop & mobile) saat modal/lightbox terbuka */
+html.lightbox-scroll-lock,
+html.lightbox-scroll-lock body {
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+  touch-action: none !important;
+}
+
 /* 2. Anchor Links & Buttons Reset */
 a {
   color: inherit;

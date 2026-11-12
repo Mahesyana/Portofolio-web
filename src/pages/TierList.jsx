@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { INITIAL_LANGUAGES, TIER_CONFIG } from '../data/tierListData';
 import '../styles/pages.css';
@@ -17,6 +18,33 @@ export default function TierList() {
 
   // State untuk menu aksi cepat (Quick Move) di layar HP
   const [activeItemMenu, setActiveItemMenu] = useState(null); // { lang, currentTierId }
+
+  // Mengunci scroll halaman dan menutup modal dengan Escape saat menu aksi cepat terbuka
+  useEffect(() => {
+    if (!activeItemMenu) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setActiveItemMenu(null);
+      }
+    };
+
+    const preventTouchScroll = (e) => {
+      if (!e.target.closest('.tier-quick-menu-box')) {
+        e.preventDefault();
+      }
+    };
+
+    document.documentElement.classList.add('lightbox-scroll-lock');
+    window.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('touchmove', preventTouchScroll, { passive: false });
+
+    return () => {
+      document.documentElement.classList.remove('lightbox-scroll-lock');
+      window.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('touchmove', preventTouchScroll);
+    };
+  }, [activeItemMenu]);
 
   // 1. Memindahkan bahasa dari satu tier ke tier tujuan
   const moveLanguage = (lang, fromTierId, toTierId) => {
@@ -205,76 +233,80 @@ export default function TierList() {
       {/* ============================================================== */}
       {/* MODAL / MENU AKSI CEPAT (QUICK MOVE) RAMAH LAYAR HP & KLIK     */}
       {/* ============================================================== */}
-      {activeItemMenu && (
-        <div 
-          className="project-lightbox-backdrop"
-          onClick={() => setActiveItemMenu(null)}
-          style={{ zIndex: 999 }}
-        >
-          <div 
-            className="tier-quick-menu-box app-card"
-            onClick={(e) => e.stopPropagation()}
+      {activeItemMenu &&
+        createPortal(
+          <div
+            className="project-lightbox-backdrop"
+            onClick={() => setActiveItemMenu(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Pindahkan ${activeItemMenu.lang.name}`}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span className="tier-lang-badge" style={{ backgroundColor: activeItemMenu.lang.color }}>
-                  {activeItemMenu.lang.badge}
-                </span>
-                <strong style={{ fontSize: '1rem', color: 'var(--text-headline)' }}>
-                  {activeItemMenu.lang.name}
-                </strong>
-              </div>
-              <button 
-                onClick={() => setActiveItemMenu(null)} 
-                className="btn-secondary" 
-                style={{ padding: '0.2rem 0.5rem', fontSize: '0.75rem', minWidth: 'auto' }}
-              >
-                Tutup ✕
-              </button>
-            </div>
-
-            <p style={{ fontSize: '0.78125rem', color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
-              Pilih baris kategori tujuan untuk bahasa ini:
-            </p>
-
-            <div className="tier-quick-buttons-list">
-              <button
-                onClick={() => moveLanguage(activeItemMenu.lang, activeItemMenu.currentTierId, 'bagus')}
-                className="tier-quick-btn"
-                style={{ borderColor: 'rgba(16, 185, 129, 0.4)', backgroundColor: 'rgba(16, 185, 129, 0.08)' }}
-              >
-                <span style={{ color: '#10b981', fontWeight: 700 }}>🟢 Pindahkan ke: Bagus</span>
-              </button>
-
-              <button
-                onClick={() => moveLanguage(activeItemMenu.lang, activeItemMenu.currentTierId, 'biasa')}
-                className="tier-quick-btn"
-                style={{ borderColor: 'rgba(245, 158, 11, 0.4)', backgroundColor: 'rgba(245, 158, 11, 0.08)' }}
-              >
-                <span style={{ color: '#f59e0b', fontWeight: 700 }}>🟡 Pindahkan ke: Biasa</span>
-              </button>
-
-              <button
-                onClick={() => moveLanguage(activeItemMenu.lang, activeItemMenu.currentTierId, 'kurang')}
-                className="tier-quick-btn"
-                style={{ borderColor: 'var(--crimson-border)', backgroundColor: 'var(--crimson-light)' }}
-              >
-                <span style={{ color: 'var(--crimson)', fontWeight: 700 }}>🔴 Pindahkan ke: Kurang</span>
-              </button>
-
-              {activeItemMenu.currentTierId !== 'pool' && (
+            <div
+              className="tier-quick-menu-box app-card"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span className="tier-lang-badge" style={{ backgroundColor: activeItemMenu.lang.color }}>
+                    {activeItemMenu.lang.badge}
+                  </span>
+                  <strong style={{ fontSize: '1rem', color: 'var(--text-headline)' }}>
+                    {activeItemMenu.lang.name}
+                  </strong>
+                </div>
                 <button
-                  onClick={() => moveLanguage(activeItemMenu.lang, activeItemMenu.currentTierId, 'pool')}
-                  className="tier-quick-btn"
-                  style={{ borderColor: 'var(--surface-border)' }}
+                  onClick={() => setActiveItemMenu(null)}
+                  className="btn-secondary"
+                  style={{ padding: '0.2rem 0.5rem', fontSize: '0.75rem', minWidth: 'auto' }}
                 >
-                  <span style={{ color: 'var(--text-body)' }}>⚪ Kembalikan ke Koleksi Awal</span>
+                  Tutup ✕
                 </button>
-              )}
+              </div>
+
+              <p style={{ fontSize: '0.78125rem', color: 'var(--text-muted)', marginBottom: '1.25rem' }}>
+                Pilih baris kategori tujuan untuk bahasa ini:
+              </p>
+
+              <div className="tier-quick-buttons-list">
+                <button
+                  onClick={() => moveLanguage(activeItemMenu.lang, activeItemMenu.currentTierId, 'bagus')}
+                  className="tier-quick-btn"
+                  style={{ borderColor: 'rgba(16, 185, 129, 0.4)', backgroundColor: 'rgba(16, 185, 129, 0.08)' }}
+                >
+                  <span style={{ color: '#10b981', fontWeight: 700 }}>🟢 Pindahkan ke: Bagus</span>
+                </button>
+
+                <button
+                  onClick={() => moveLanguage(activeItemMenu.lang, activeItemMenu.currentTierId, 'biasa')}
+                  className="tier-quick-btn"
+                  style={{ borderColor: 'rgba(245, 158, 11, 0.4)', backgroundColor: 'rgba(245, 158, 11, 0.08)' }}
+                >
+                  <span style={{ color: '#f59e0b', fontWeight: 700 }}>🟡 Pindahkan ke: Biasa</span>
+                </button>
+
+                <button
+                  onClick={() => moveLanguage(activeItemMenu.lang, activeItemMenu.currentTierId, 'kurang')}
+                  className="tier-quick-btn"
+                  style={{ borderColor: 'var(--crimson-border)', backgroundColor: 'var(--crimson-light)' }}
+                >
+                  <span style={{ color: 'var(--crimson)', fontWeight: 700 }}>🔴 Pindahkan ke: Kurang</span>
+                </button>
+
+                {activeItemMenu.currentTierId !== 'pool' && (
+                  <button
+                    onClick={() => moveLanguage(activeItemMenu.lang, activeItemMenu.currentTierId, 'pool')}
+                    className="tier-quick-btn"
+                    style={{ borderColor: 'var(--surface-border)' }}
+                  >
+                    <span style={{ color: 'var(--text-body)' }}>⚪ Kembalikan ke Koleksi Awal</span>
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
 
     </div>
   );

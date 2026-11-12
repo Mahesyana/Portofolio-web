@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { PROJECTS_DATA } from '../data/projectsData';
+import ImageLightbox from '../components/ImageLightbox';
 import '../styles/pages.css';
 
 export default function ProjectDetail() {
@@ -15,27 +16,7 @@ export default function ProjectDetail() {
 
   // State modal lightbox untuk memperbesar gambar jika diklik
   const [zoomedImage, setZoomedImage] = useState(null);
-
-  // Keyboard Escape listener untuk menutup modal lightbox
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        setZoomedImage(null);
-      }
-    };
-
-    if (zoomedImage) {
-      window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
-    };
-  }, [zoomedImage]);
+  const handleCloseLightbox = useCallback(() => setZoomedImage(null), []);
 
   // Jika ID tidak ditemukan di dataset, arahkan kembali ke katalog projects
   if (!project) {
@@ -296,40 +277,7 @@ export default function ProjectDetail() {
       </div>
 
       {/* 6. Modal Lightbox untuk Perbesar Tampilan Layar Penuh Gambar */}
-      {zoomedImage && (
-        <div
-          className="project-lightbox-backdrop"
-          onClick={() => setZoomedImage(null)}
-          title="Klik di mana saja untuk menutup"
-        >
-          <div
-            className="project-lightbox-content"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="project-lightbox-header">
-              <div className="project-lightbox-title-group">
-                <span className="project-lightbox-kamon-dot"></span>
-                <span className="project-lightbox-title">{zoomedImage.title}</span>
-                <span className="project-lightbox-badge">Tampilan Penuh</span>
-              </div>
-            </div>
-
-            <div className="project-lightbox-image-frame">
-              <img
-                src={zoomedImage.url}
-                alt={zoomedImage.title}
-                className="project-lightbox-img"
-              />
-            </div>
-
-            <div className="project-lightbox-footer">
-              <span className="project-lightbox-hint">
-                Tekan tombol <kbd className="lightbox-kbd">Esc</kbd> atau klik area luar untuk menutup
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
+      <ImageLightbox image={zoomedImage} onClose={handleCloseLightbox} />
 
     </div>
   );
